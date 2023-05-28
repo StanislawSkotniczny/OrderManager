@@ -14,5 +14,6 @@ namespace OrderManager.Entities
 
         public decimal Price { get; set; }
 
+        public ICollection<OrderItem> OrderItems { get; set; }
     }
 }

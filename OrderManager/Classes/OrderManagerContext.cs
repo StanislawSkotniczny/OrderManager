@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Markup;
 
 namespace OrderManager.Classes
 {
@@ -17,10 +18,12 @@ namespace OrderManager.Classes
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("");
+            base.OnConfiguring(optionsBuilder);
+            optionsBuilder.UseSqlite("Data Source=C:\\Users\\syass\\source\\repos\\OrderManager\\OrderManager\\Proj.db3");
+            optionsBuilder.EnableSensitiveDataLogging();
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+      /*  protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Customer>(entityTypeBuilder =>
             {
@@ -59,7 +62,7 @@ namespace OrderManager.Classes
                
             });
         }
-
+      */
 
 
 
