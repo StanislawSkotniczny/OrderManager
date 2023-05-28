@@ -50,7 +50,14 @@ namespace OrderManager.Classes
                 entityTypeBuilder.Property(a => a.Product);
             });
 
-
+            modelBuilder.Entity<Product>(entityTypeBuilder =>
+            {
+                entityTypeBuilder.ToTable("Customers");
+                entityTypeBuilder.HasKey(a => a.Id);
+                entityTypeBuilder.Property(a => a.Name);
+                entityTypeBuilder.Property(a => a.Price);
+               
+            });
         }
 
 
