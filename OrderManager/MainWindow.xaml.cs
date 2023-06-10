@@ -1,8 +1,10 @@
 ﻿using OrderManager.Classes;
 using OrderManager.Entities;
+using OrderManager.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,32 +28,33 @@ namespace OrderManager
         public MainWindow()
         {
             InitializeComponent();
+            var page = new HomeView();
+            mainFrame.Content = page;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void CustomerBtn_Click(object sender, RoutedEventArgs e)
         {
-            using OrderManagerContext context = new OrderManagerContext();
+            var page = new Customers();
+            mainFrame.Content = page;
 
-            Customer publisherx = new Customer()
-            {
-                Name = "Clown"
-            };
-            /*Author authorx = new Author()
-            {
-                Name = "AlohaDanceq"
-            };*/
-            context.Customers.Add(publisherx);
-            /*context.Authors.Add(authorx);
-            Book uncharted = new Book()
-            {
-                AuthorId = 1,
-                Name = "Uncharted",
-                Description = "qqweqwqewwqeqweqweqweewq"
-            };
-            context.Books.Add(uncharted);
-            */
-            context.SaveChanges();
-           
+        }
+
+        private void HomeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var page = new HomeView();
+            mainFrame.Content = page;
+        }
+
+        private void ProductsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var page = new Products();
+            mainFrame.Content = page;
+        }
+
+        private void OrdersBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var page = new Orders();
+            mainFrame.Content = page;
         }
     }
 }
