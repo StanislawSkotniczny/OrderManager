@@ -1,8 +1,6 @@
-﻿using OrderManager.Classes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -18,19 +16,13 @@ using System.Windows.Shapes;
 namespace OrderManager.Views
 {
     /// <summary>
-    /// Interaction logic for Customers.xaml
+    /// Interaction logic for AddCustomer.xaml
     /// </summary>
-    public partial class Customers : Page
+    public partial class AddCustomer : Page
     {
-        public Customers()
+        public AddCustomer()
         {
             InitializeComponent();
-          
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-           
         }
     }
 }
