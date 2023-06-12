@@ -1,4 +1,6 @@
-﻿using OrderManager.Classes;
+﻿using Microsoft.EntityFrameworkCore;
+using OrderManager.Classes;
+using OrderManager.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,10 +32,30 @@ namespace OrderManager.Views
                        select Customer;
             foreach (var customer in customers)
             {
+                Grid grid = new Grid();
+                grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Star) }); 
+                grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Auto) }); 
+                grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Auto) }); 
+
                 Button button = new Button();
+                Button button2 = new Button();
+                Button button3 = new Button();
+                Label label = new Label();
+
                 button.Content = $"{customer.Name} {customer.SecondName}";
-                
-                CustomerList.Children.Add(button);
+                button2.Content = "Update";
+                button3.Content = "Delete";
+                button3.Click += (sender, e) => DeleteCustomer(customer);
+
+                Grid.SetColumn(button, 0); 
+                Grid.SetColumn(button2, 1);
+                Grid.SetColumn(button3, 2); 
+
+                grid.Children.Add(button);
+                grid.Children.Add(button2);
+                grid.Children.Add(button3);
+
+                CustomerList.Children.Add(grid);
             }
 
         }
@@ -45,7 +67,21 @@ namespace OrderManager.Views
             navigationService.Navigate(newPage);
         }
 
+        private void DeleteCustomer(Customer customer)
+        {
+            using OrderManagerContext context = new OrderManagerContext();
 
+            if (context.Entry(customer).State == EntityState.Detached)
+            {
+                context.Attach(customer);
+            }
+
+            context.Customers.Remove(customer);
+            context.SaveChanges();
+            Page newPage = new Customers();
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(newPage);
+        }
 
     } 
 }
