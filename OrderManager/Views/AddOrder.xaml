@@ -12,35 +12,38 @@
         <Frame
                 x:Name="mainFrame"
                 JournalOwnership="OwnsJournal"
-                NavigationUIVisibility="Hidden" Margin="-10,-10,10,10" Navigated="mainFrame_Navigated" />
+                NavigationUIVisibility="Hidden"  />
         <Label
             Content="Order Number"
             Foreground="White"
-            Margin="100,123,364,431"
+            Margin="100,123,345,96"
             FontSize="20"
             FontWeight="Bold" Height="NaN" Width="NaN" RenderTransformOrigin="0.463,0.609"/>
 
 
-        <TextBox Height="NaN" Margin="368,127,100,427" Width="NaN" Name="OrderNumber"/>
+        <TextBox Height="NaN" Margin="368,127,68,413" Width="NaN" Name="OrderNumber"/>
 
 
         <Label
             Content="Order Date"
             Foreground="White"
-            Margin="100,203,365,351"
+            Margin="100,203,295,50"
             FontSize="20"
             FontWeight="Bold" Height="NaN" Width="NaN" RenderTransformOrigin="0.463,0.609"/>
 
-        <DatePicker Margin="368,212,100,360" Width="NaN" Name="OrderDate" RenderTransformOrigin="0.498,1.174"/>
+        <DatePicker Margin="368,212,68,328" Width="NaN" Name="OrderDate" RenderTransformOrigin="0.498,1.174"/>
 
         <Label
             Content="Customer ID"
             Foreground="White"
-            Margin="100,290,386,264"
+            Margin="100,290,282,50"
             FontSize="20"
             FontWeight="Bold" Height="NaN" Width="NaN" RenderTransformOrigin="0.463,0.609"/>
 
-        <TextBox Height="NaN" Margin="368,290,100,264" Width="NaN" Name="CustomerId"/>
+        <TextBox Margin="368,290,68,253" Width="NaN" Name="CustomerId"/>
+
+        <Button Margin="158,365,158,82" Content="Submit" FontSize="35" Name="AddOrderSubmit" Click="AddOrderSubmit_Click"/>
+
 
     </Grid>
 </Page>

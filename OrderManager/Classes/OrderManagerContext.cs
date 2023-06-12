@@ -1,7 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.Data.Sqlite;
+using Microsoft.EntityFrameworkCore;
 using OrderManager.Entities;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,10 +20,18 @@ namespace OrderManager.Classes
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            
+
+            string Directory1 = Directory.GetParent(Directory.GetParent(Directory.GetParent(Path.GetDirectoryName(AppDomain.CurrentDomain.BaseDirectory)).FullName).FullName).FullName;
+            string FilePath = Path.Combine(Directory1, "Proj.db3");
+            SqliteConnectionStringBuilder builder = new SqliteConnectionStringBuilder();
+            builder.DataSource = FilePath;
+            string connectionString = builder.ConnectionString;
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlite("Data Source=C:\\Users\\syass\\source\\repos\\OrderManager\\OrderManager\\Proj.db3");
+            optionsBuilder.UseSqlite(connectionString);
             optionsBuilder.EnableSensitiveDataLogging();
         }
+
 
       /*  protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

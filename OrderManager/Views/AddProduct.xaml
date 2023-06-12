@@ -16,24 +16,26 @@
         <Label
             Content="Product Name"
             Foreground="White"
-            Margin="50,146,415,408"
+            Margin="50,146,384,124"
             FontSize="20"
             FontWeight="Bold" Height="NaN" Width="NaN" RenderTransformOrigin="0.463,0.609"/>
 
 
-        <TextBox Height="NaN" Margin="286,146,27,408" Width="NaN" Name="Name"/>
+        <TextBox Height="NaN" Margin="286,146,27,387" Width="NaN" Name="Name"/>
 
 
         <Label
             Content="Price"
             Foreground="White"
-            Margin="50,234,415,320"
+            Margin="50,234,365,42"
             FontSize="20"
             FontWeight="Bold" Height="NaN" Width="NaN" RenderTransformOrigin="0.463,0.609"/>
 
-        <TextBox Height="NaN" Margin="286,234,27,320" Width="NaN" Name="Price"/>
+        <TextBox Height="NaN" Margin="286,234,27,300" Width="NaN" Name="Price"/>
 
-     
+        <Button Margin="158,365,158,82" Content="Submit" FontSize="35" Name="AddProductSubmit" Click="AddProductSubmit_Click"/>
+
+
 
     </Grid>
 </Page>

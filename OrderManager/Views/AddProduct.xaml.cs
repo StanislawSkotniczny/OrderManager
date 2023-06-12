@@ -1,4 +1,6 @@
-﻿using System;
+﻿using OrderManager.Classes;
+using OrderManager.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,26 @@ namespace OrderManager.Views
         public AddProduct()
         {
             InitializeComponent();
+        }
+
+        private void AddProductSubmit_Click(object sender, RoutedEventArgs e)
+        {
+            using OrderManagerContext context = new OrderManagerContext();
+            Product product = new Product()
+            {
+                Name = ((TextBox)FindName("Name")).Text ?? "Empty",
+               // Price = ((TextBox)FindName("Price")).Text ?? "Empty",
+             
+            };
+
+            context.Products.Add(product);
+
+            context.SaveChanges();
+
+
+            Page newPage = new Products();
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(newPage);
         }
     }
 }

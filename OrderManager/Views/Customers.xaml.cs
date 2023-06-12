@@ -25,7 +25,17 @@ namespace OrderManager.Views
         public Customers()
         {
             InitializeComponent();
-          
+            using OrderManagerContext context = new OrderManagerContext();
+            var customers = from Customer in context.Customers
+                       select Customer;
+            foreach (var customer in customers)
+            {
+                Button button = new Button();
+                button.Content = $"{customer.Name} {customer.SecondName}";
+                
+                CustomerList.Children.Add(button);
+            }
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -34,5 +44,8 @@ namespace OrderManager.Views
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(newPage);
         }
-    }
+
+
+
+    } 
 }

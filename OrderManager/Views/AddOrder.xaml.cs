@@ -1,4 +1,6 @@
-﻿using System;
+﻿using OrderManager.Classes;
+using OrderManager.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,8 +27,25 @@ namespace OrderManager.Views
             InitializeComponent();
         }
 
-        private void mainFrame_Navigated(object sender, NavigationEventArgs e)
+    
+        private void AddOrderSubmit_Click(object sender, RoutedEventArgs e)
         {
+            using OrderManagerContext context = new OrderManagerContext();
+            Order order = new Order()
+            {
+                OrderNumber = ((TextBox)FindName("FirstName")).Text ?? "Empty",
+                OrderDate = ((DatePicker)FindName("OrderDate")).SelectedDate ?? DateTime.MinValue,
+                // CustomerId = ((TextBox)FindName("Email")).Text ?? "Empty",
+            };
+
+            context.Orders.Add(order);
+
+            context.SaveChanges();
+
+
+            Page newPage = new Customers();
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(newPage);
 
         }
     }

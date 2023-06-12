@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OrderManager.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,23 @@ namespace OrderManager.Views
         public Orders()
         {
             InitializeComponent();
+            using OrderManagerContext context = new OrderManagerContext();
+            var orders = from Order in context.Orders
+                            select Order;
+            foreach (var order in orders)
+            {
+                Button button = new Button();
+                button.Content = $"{order.OrderNumber} {order.OrderDate}";
+
+                OrderList.Children.Add(button);
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            AddOrder newPage = new AddOrder();
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(newPage);
         }
     }
 }
