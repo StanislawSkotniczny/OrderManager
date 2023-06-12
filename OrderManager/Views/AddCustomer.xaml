@@ -16,31 +16,33 @@
         <Label
             Content="First Name"
             Foreground="White"
-            Margin="50,108,436,446"
-            FontSize="20"
+            Margin="30,84,380,84"
+            FontSize="35"
             FontWeight="Bold" Height="NaN" Width="NaN" RenderTransformOrigin="0.463,0.609"/>
 
 
-        <TextBox Height="NaN" Margin="286,108,27,446" Width="NaN" Name="FirstName"/>
+        <TextBox Height="NaN" Margin="286,108,27,427" Width="NaN" Name="FirstName"/>
 
 
         <Label
             Content="Second Name"
             Foreground="White"
-            Margin="50,192,415,362"
-            FontSize="20"
+            Margin="30,179,341,49"
+            FontSize="35"
             FontWeight="Bold" Height="NaN" Width="NaN" RenderTransformOrigin="0.463,0.609"/>
 
-        <TextBox Height="NaN" Margin="286,192,27,362" Width="NaN" Name="SecondName"/>
+        <TextBox Height="NaN" Margin="286,192,27,345" Width="NaN" Name="SecondName"/>
 
         <Label
             Content="Email"
             Foreground="White"
-            Margin="50,277,436,277"
-            FontSize="20"
+            Margin="30,267,434,59"
+            FontSize="35"
             FontWeight="Bold" Height="NaN" Width="NaN" RenderTransformOrigin="0.463,0.609"/>
 
-        <TextBox Height="NaN" Margin="286,277,27,277" Width="NaN" Name="Email"/>
+        <TextBox Height="NaN" Margin="286,277,27,258" Width="NaN" Name="Email"/>
+
+        <Button Margin="158,365,158,82" Content="Submit" FontSize="35" Name="AddCustomerSubmit" Click="AddCustomerSubmit_Click"/>
 
 
     </Grid>

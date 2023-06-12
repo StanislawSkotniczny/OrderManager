@@ -96,5 +96,8 @@
            
             >Add Customer</Button>
 
+        <StackPanel Grid.Row="1" Margin="10,10,26,10" Background="Black" Orientation="Vertical"/>
+
+
     </Grid>
 </Page>

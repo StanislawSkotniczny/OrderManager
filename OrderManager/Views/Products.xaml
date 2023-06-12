@@ -68,5 +68,9 @@
             FontSize="18"
             FontWeight="SemiBold" 
             >Add Product</Button>
+        
+        <StackPanel Grid.Row="1" Margin="10,10,26,10" Background="Black" Orientation="Vertical"/>
+
+
     </Grid>
 </Page>

@@ -30,7 +30,9 @@ namespace OrderManager.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-           
+            AddCustomer newPage = new AddCustomer();
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(newPage);
         }
     }
 }
