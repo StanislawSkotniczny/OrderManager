@@ -30,21 +30,22 @@ namespace OrderManager.Views
         private void AddProductSubmit_Click(object sender, RoutedEventArgs e)
         {
             using OrderManagerContext context = new OrderManagerContext();
-            Product product = new Product()
+          
+            if (decimal.TryParse(((TextBox)FindName("Price")).Text, out decimal price))
             {
-              
-                Name = ((TextBox)FindName("Name")).Text ?? "Empty",
-              // Price = ((TextBox)FindName("Price")).Text ?? "Empty",
+                Product product = new Product()
+                {
+                    Name = ((TextBox)FindName("Name")).Text ?? "Empty",
+                    Price = price
+                };
 
-
-
-             
-            };
-
-            context.Products.Add(product);
-
-            context.SaveChanges();
-
+                context.Products.Add(product);
+                context.SaveChanges();
+            }
+            else
+            {
+                
+            }
 
             Page newPage = new Products();
             NavigationService navigationService = NavigationService.GetNavigationService(this);
