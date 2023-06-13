@@ -32,8 +32,12 @@ namespace OrderManager.Views
             using OrderManagerContext context = new OrderManagerContext();
             Product product = new Product()
             {
+              
                 Name = ((TextBox)FindName("Name")).Text ?? "Empty",
-               // Price = ((TextBox)FindName("Price")).Text ?? "Empty",
+              // Price = ((TextBox)FindName("Price")).Text ?? "Empty",
+
+
+
              
             };
 

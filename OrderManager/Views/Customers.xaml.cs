@@ -42,7 +42,7 @@ namespace OrderManager.Views
                 Button button3 = new Button();
                 Label label = new Label();
 
-                button.Content = $"{customer.Name} {customer.SecondName}";
+                button.Content = $"{customer.Name} {customer.SecondName} {customer.Email}";
                 button2.Content = "Update";
                 button3.Content = "Delete";
 
@@ -71,6 +71,7 @@ namespace OrderManager.Views
                 button2.FontWeight = FontWeights.Bold;
                 button3.FontWeight = FontWeights.Bold;
 
+               
                 button2.Click += (sender, e) => GoToUpdateCustomer(customer);
                 button3.Click += (sender, e) => DeleteCustomer(customer);
 

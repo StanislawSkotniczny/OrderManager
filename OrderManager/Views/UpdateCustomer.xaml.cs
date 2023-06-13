@@ -31,14 +31,28 @@ namespace OrderManager.Views
 
         private void CustomerSubmit_Click(object sender, RoutedEventArgs e)
         {
-            using OrderManagerContext context = new OrderManagerContext();
-            Customer.Name = ((TextBox)FindName("FirstName")).Text;
-            Customer.SecondName = ((TextBox)FindName("SecondName")).Text;
-            Customer.Email = ((TextBox)FindName("Email")).Text;
-            context.SaveChanges();
-            Customers newPage = new Customers();
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(newPage);
+            using (OrderManagerContext context = new OrderManagerContext())
+            {
+                Customer customerToUpdate = context.Customers.FirstOrDefault(); 
+
+                if (customerToUpdate != null)
+                {
+                    customerToUpdate.Name = ((TextBox)FindName("FirstName")).Text;
+                    customerToUpdate.SecondName = ((TextBox)FindName("SecondName")).Text;
+                    customerToUpdate.Email = ((TextBox)FindName("Email")).Text;
+                    context.SaveChanges();
+
+                    
+                    Button button = (Button)sender;
+                    button.Content = $"{customerToUpdate.Name} {customerToUpdate.SecondName} {customerToUpdate.Email}";
+                }
+
+                Customers newPage = new Customers();
+                NavigationService navigationService = NavigationService.GetNavigationService(this);
+                navigationService.Navigate(newPage);
+            }
+
+
         }
     }
 }

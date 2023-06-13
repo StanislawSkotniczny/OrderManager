@@ -33,8 +33,8 @@ namespace OrderManager.Views
             using OrderManagerContext context = new OrderManagerContext();
             Order order = new Order()
             {
-                OrderNumber = ((TextBox)FindName("FirstName")).Text ?? "Empty",
-                OrderDate = ((DatePicker)FindName("OrderDate")).SelectedDate ?? DateTime.MinValue,
+               // OrderId = ((TextBox)FindName("FirstName")).Text ?? "Empty",
+                //OrderDate = ((DatePicker)FindName("OrderDate")).SelectedDate ?? DateTime.MinValue,
                 // CustomerId = ((TextBox)FindName("Email")).Text ?? "Empty",
             };
 
