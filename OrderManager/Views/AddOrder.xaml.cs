@@ -31,21 +31,31 @@ namespace OrderManager.Views
         private void AddOrderSubmit_Click(object sender, RoutedEventArgs e)
         {
             using OrderManagerContext context = new OrderManagerContext();
-            Order order = new Order()
+   
+
+            if (int.TryParse(((TextBox)FindName("CustomerId")).Text, out int customerId))
             {
-               // OrderId = ((TextBox)FindName("FirstName")).Text ?? "Empty",
-                //OrderDate = ((DatePicker)FindName("OrderDate")).SelectedDate ?? DateTime.MinValue,
-                // CustomerId = ((TextBox)FindName("Email")).Text ?? "Empty",
-            };
+                Order order = new Order()
+                {
+                    CustomerId = customerId,
+                    OrderNumber = ((TextBox)FindName("OrderNumber")).Text ?? "Empty",
+                    OrderDate = ((DatePicker)FindName("OrderDate")).SelectedDate ?? DateTime.MinValue,
+                };
 
-            context.Orders.Add(order);
+                context.Orders.Add(order);
 
-            context.SaveChanges();
+                context.SaveChanges();
+            }
+            else
+            {
+                
+            }
 
-
-            Page newPage = new Customers();
+            Page newPage = new Products();
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(newPage);
+
+
 
         }
     }

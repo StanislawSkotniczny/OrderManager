@@ -39,20 +39,13 @@ namespace OrderManager.Views
                 {
                     if (decimal.TryParse(((TextBox)FindName("Price")).Text, out decimal price))
                     {
-
-
                         productToUpdate.Name = ((TextBox)FindName("Name")).Text ?? "Empty";
-                            productToUpdate.Price = price;
-                        
-
-                       
+                            productToUpdate.Price = price;   
                     }
                     else
                     {
 
                     }
-                    
-                 
                     context.SaveChanges();
 
                     Button button = (Button)sender;
