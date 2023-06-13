@@ -5,10 +5,43 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:OrderManager.Views"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="600" d:DesignWidth="622" Background="black"
       Title="UpdateCustomer">
 
     <Grid>
-        
+        <Frame
+                x:Name="mainFrame"
+                JournalOwnership="OwnsJournal"
+                NavigationUIVisibility="Hidden" />
+        <Label
+            Content="First Name"
+            Foreground="White"
+            Margin="30,84,380,84"
+            FontSize="35"
+            FontWeight="Bold" Height="NaN" Width="NaN" RenderTransformOrigin="0.463,0.609"/>
+
+
+        <TextBox Height="NaN" Margin="286,108,27,427" Width="NaN" Name="FirstName"/>
+
+
+        <Label
+            Content="Second Name"
+            Foreground="White"
+            Margin="30,179,341,49"
+            FontSize="35"
+            FontWeight="Bold" Height="NaN" Width="NaN" RenderTransformOrigin="0.463,0.609"/>
+
+        <TextBox Height="NaN" Margin="286,192,27,345" Width="NaN" Name="SecondName"/>
+
+        <Label
+            Content="Email"
+            Foreground="White"
+            Margin="30,267,434,59"
+            FontSize="35"
+            FontWeight="Bold" Height="NaN" Width="NaN" RenderTransformOrigin="0.463,0.609"/>
+
+        <TextBox Height="NaN" Margin="286,277,27,258" Width="NaN" Name="Email"/>
+
+        <Button Margin="158,365,158,82" Content="Confirm" FontSize="35" Name="CustomerSubmit" Click="CustomerSubmit_Click" />
     </Grid>
 </Page>

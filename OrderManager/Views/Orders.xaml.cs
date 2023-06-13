@@ -44,6 +44,30 @@ namespace OrderManager.Views
                 button.Content = $"{order.OrderNumber} {order.OrderDate}";
                 button2.Content = "Update";
                 button3.Content = "Delete";
+
+                button.Style = FindResource("AddOrderRoundedbtn") as Style;
+                button2.Style = FindResource("AddOrderRoundedbtn") as Style;
+                button3.Style = FindResource("AddOrderRoundedbtn") as Style;
+
+                button.Background = Brushes.BlanchedAlmond;
+                button2.Background = Brushes.Yellow;
+                button3.Background = Brushes.Red;
+
+                button.Width = 300;
+                button.Height = 25;
+                button2.Width = 100;
+                button2.Height = 25;
+                button3.Width = 100;
+                button3.Height = 25;
+
+                button.Margin = new Thickness(10);
+                button2.Margin = new Thickness(10);
+                button3.Margin = new Thickness(10);
+
+                button.FontWeight = FontWeights.Bold;
+                button2.FontWeight = FontWeights.Bold;
+                button3.FontWeight = FontWeights.Bold;
+
                 button3.Click += (sender, e) => DeleteOrder(order);
 
                 Grid.SetColumn(button, 0);

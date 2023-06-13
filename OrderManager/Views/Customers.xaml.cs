@@ -45,8 +45,36 @@ namespace OrderManager.Views
                 button.Content = $"{customer.Name} {customer.SecondName}";
                 button2.Content = "Update";
                 button3.Content = "Delete";
+
+
+                // Ustawienie stylu przycisków
+                button.Style = FindResource("RoundedAddCustomer") as Style;
+                button2.Style = FindResource("RoundedAddCustomer") as Style;
+                button3.Style = FindResource("RoundedAddCustomer") as Style;
+
+                button.Background = Brushes.BlanchedAlmond;
+                button2.Background = Brushes.Yellow; 
+                button3.Background = Brushes.Red;
+               
+                button.Width = 300;
+                button.Height = 25;
+                button2.Width = 100;
+                button2.Height = 25;
+                button3.Width = 100;
+                button3.Height = 25;
+
+                button.Margin = new Thickness(10);
+                button2.Margin = new Thickness(10);
+                button3.Margin = new Thickness(10);
+
+                button.FontWeight = FontWeights.Bold;
+                button2.FontWeight = FontWeights.Bold;
+                button3.FontWeight = FontWeights.Bold;
+
+                button2.Click += (sender, e) => GoToUpdateCustomer(customer);
                 button3.Click += (sender, e) => DeleteCustomer(customer);
 
+               
                 Grid.SetColumn(button, 0); 
                 Grid.SetColumn(button2, 1);
                 Grid.SetColumn(button3, 2); 
@@ -82,6 +110,13 @@ namespace OrderManager.Views
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(newPage);
         }
+
+        private void GoToUpdateCustomer(Customer customer)
+        {
+            UpdateCustomer updatePage = new UpdateCustomer(customer);
+            NavigationService.Navigate(updatePage);
+        }
+
 
     } 
 }

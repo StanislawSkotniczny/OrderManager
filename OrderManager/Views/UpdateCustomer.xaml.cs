@@ -1,4 +1,6 @@
-﻿using System;
+﻿using OrderManager.Classes;
+using OrderManager.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,23 @@ namespace OrderManager.Views
     /// </summary>
     public partial class UpdateCustomer : Page
     {
-        public UpdateCustomer()
+        private Customer Customer;
+        public UpdateCustomer(Customer customer)
         {
+            Customer = customer;
             InitializeComponent();
+        }
+
+        private void CustomerSubmit_Click(object sender, RoutedEventArgs e)
+        {
+            using OrderManagerContext context = new OrderManagerContext();
+            Customer.Name = ((TextBox)FindName("FirstName")).Text;
+            Customer.SecondName = ((TextBox)FindName("SecondName")).Text;
+            Customer.Email = ((TextBox)FindName("Email")).Text;
+            context.SaveChanges();
+            Customers newPage = new Customers();
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(newPage);
         }
     }
 }
