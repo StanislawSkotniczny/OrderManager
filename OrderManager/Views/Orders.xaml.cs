@@ -41,7 +41,7 @@ namespace OrderManager.Views
                 Button button3 = new Button();
                 Label label = new Label();
 
-                button.Content = $"{order.OrderNumber} {order.OrderDate}";
+                button.Content = $"{order.OrderNumber} {order.OrderDate} {order.CustomerId}";
                 button2.Content = "Update";
                 button3.Content = "Delete";
 
@@ -79,6 +79,16 @@ namespace OrderManager.Views
                 grid.Children.Add(button3);
 
                 OrderList.Children.Add(grid);
+
+                foreach (var orderItem in order.OrderItems)
+                {
+                    Label orderItemLabel = new Label();
+                    orderItemLabel.Content = $"OrderItem: ProductId={orderItem.ProductId}, Quantity={orderItem.Quantity}";
+                    OrderList.Children.Add(orderItemLabel);
+                }
+
+
+
             }
         }
 
@@ -98,8 +108,8 @@ namespace OrderManager.Views
             {
                 context.Attach(order);
             }
+           
 
-            //context.Customers.Remove(order);
             context.SaveChanges();
             Page newPage = new Orders();
             NavigationService navigationService = NavigationService.GetNavigationService(this);
