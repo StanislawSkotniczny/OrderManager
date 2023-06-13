@@ -1,0 +1,40 @@
+﻿<Page x:Class="OrderManager.Views.UpdateProduct"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:OrderManager.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="622" Background="black"
+      Title="UpdateProduct">
+
+    <Grid>
+        <Frame
+                x:Name="mainFrame"
+                JournalOwnership="OwnsJournal"
+                NavigationUIVisibility="Hidden" />
+        <Label
+            Content="Product Name"
+            Foreground="White"
+            Margin="50,146,384,124"
+            FontSize="20"
+            FontWeight="Bold" Height="NaN" Width="NaN" RenderTransformOrigin="0.463,0.609"/>
+
+
+        <TextBox Height="NaN" Margin="286,146,27,387" Width="NaN" Name="Name"/>
+
+
+        <Label
+            Content="Price"
+            Foreground="White"
+            Margin="50,234,365,42"
+            FontSize="20"
+            FontWeight="Bold" Height="NaN" Width="NaN" RenderTransformOrigin="0.463,0.609"/>
+
+        <TextBox Height="NaN" Margin="286,234,27,300" Width="NaN" Name="Price"/>
+
+
+        <Button Margin="158,365,158,82" Content="Confirm" FontSize="35" Name="ProductSubmit" Click="ProductSubmit_Click" />
+
+    </Grid>
+</Page>

@@ -41,7 +41,7 @@ namespace OrderManager.Views
                 Button button3 = new Button();
                 Label label = new Label();
 
-                button.Content = $"{product.Name} {product.Price}";
+                button.Content = $"{product.Name} {product.Price}$";
                 button2.Content = "Update";
                 button3.Content = "Delete";
 
@@ -67,7 +67,7 @@ namespace OrderManager.Views
                 button2.FontWeight = FontWeights.Bold;
                 button3.FontWeight = FontWeights.Bold;
 
-
+                button2.Click += (sender, e) => GoToUpdateProduct(product);
                 button3.Click += (sender, e) => DeleteProduct(product);
 
                 Grid.SetColumn(button, 0);
@@ -107,10 +107,16 @@ namespace OrderManager.Views
             navigationService.Navigate(newPage);
         }
 
+        private void GoToUpdateProduct(Product product)
+        {
+            UpdateProduct updatePage = new UpdateProduct(product);
+            NavigationService.Navigate(updatePage);
+        }
+
 
     }
 
-        
+
 
 
 }
