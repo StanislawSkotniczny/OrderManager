@@ -40,14 +40,14 @@
             </ControlTemplate.Triggers>
         </ControlTemplate>
     </Page.Resources>
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80" />
+                <RowDefinition/>
+            </Grid.RowDefinitions>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="80" />
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-
-        <Label 
+            <Label 
           Grid.Row="0" 
             Content="Products"
             Foreground="White"
@@ -58,7 +58,7 @@
             />
 
 
-        <Button Template="{DynamicResource AddProductRoundedbtn}" 
+            <Button Template="{DynamicResource AddProductRoundedbtn}" 
             Grid.Row="0" 
             Width="150"
             Height="40" 
@@ -68,9 +68,12 @@
             FontSize="18"
             FontWeight="SemiBold" Click="Button_Click1" 
             >Add Product</Button>
-        
-        <StackPanel Grid.Row="1" Margin="10,10,26,10" Background="Black" Orientation="Vertical" Name="ProductList"/>
+
+            <StackPanel Grid.Row="1" Margin="10,10,26,10" Background="Black" Orientation="Vertical" Name="ProductList"/>
 
 
-    </Grid>
+        </Grid>
+    </ScrollViewer>
+
+       
 </Page>

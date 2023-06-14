@@ -41,13 +41,10 @@ namespace OrderManager.Views
                 Button button3 = new Button();
                 Label label = new Label();
 
-                button.Content = $"{product.Name} {product.Price}$";
+                button.Content = $"Product: {product.Name} Price: {product.Price}$";
                 button2.Content = "Update";
                 button3.Content = "Delete";
 
-                button.Style = FindResource("AddProductRoundedbtn") as Style;
-                button2.Style = FindResource("AddProductRoundedbtn") as Style;
-                button3.Style = FindResource("AddProductRoundedbtn") as Style;
                 button.Background = Brushes.BlanchedAlmond;
                 button2.Background = Brushes.Yellow;
                 button3.Background = Brushes.Red;

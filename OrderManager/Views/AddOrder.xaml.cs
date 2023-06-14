@@ -52,68 +52,7 @@ namespace OrderManager.Views
     
         private void AddOrderSubmit_Click(object sender, RoutedEventArgs e)
         {
-          //  using OrderManagerContext context = new OrderManagerContext();
-
-
-            /*   if (int.TryParse(((ComboBox)FindName("CustomerId")).Text, out int customerId))
-               {
-                   Order order = new Order()
-                   {
-                       CustomerId = customerId,
-                       OrderNumber = ((TextBox)FindName("OrderNumber")).Text ?? "Empty",
-                       OrderDate = ((DatePicker)FindName("OrderDate")).SelectedDate ?? DateTime.MinValue,
-                   };
-
-
-                   OrderItem orderItem = new OrderItem()
-                   {
-                       Quantity = ((TextBox)FindName("Quantity")).Text ?? "Empty";
-                       ProductId  = (ComboBox)FindName("CustomerId")).Text;
-                   };
-
-                   context.Orders.Add(order);
-                   context.OrderItems.Add(orderItem);
-
-                   context.SaveChanges();
-           }
-
-                if (int.TryParse(((TextBox) FindName("Quantity")).Text, out int quantity)
-                   && int.TryParse(((ComboBox) FindName("ProductId")).Text, out int productId))
-               {
-                   Order order = new Order()
-                   {
-                       CustomerId = customerId,
-                       OrderNumber = ((TextBox)FindName("OrderNumber")).Text ?? "Empty",
-                       OrderDate = ((DatePicker)FindName("OrderDate")).SelectedDate ?? DateTime.MinValue,
-                   };
-
-                   OrderItem orderItem = new OrderItem()
-                   {
-                       Quantity = quantity,
-                       ProductId = productId
-                   };
-
-                   context.Orders.Add(order);
-                   context.OrderItems.Add(orderItem);
-
-                   context.SaveChanges();
-               }
-
-
-
-
-
-               else
-               {
-
-               }
-
-               Page newPage = new Orders();
-               NavigationService navigationService = NavigationService.GetNavigationService(this);
-               navigationService.Navigate(newPage);
-
-
-                  */
+         
 
             using OrderManagerContext context = new OrderManagerContext();
 

@@ -66,14 +66,15 @@
         </Style>
     </Page.Resources>
 
-    <Grid>
-       
-        <Grid.RowDefinitions>
-            <RowDefinition Height="80" />
-            <RowDefinition/>
-        </Grid.RowDefinitions>
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid>
 
-        <Label 
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80" />
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Label 
             Grid.Row="0" 
             Content="Customers"
             Foreground="White"
@@ -84,11 +85,11 @@
             />
 
 
-        <Button Style="{DynamicResource RoundedAddCustomer}"
+            <Button Style="{DynamicResource RoundedAddCustomer}"
             Grid.Row="0" 
             Width="150"
             Height="40" 
-            Margin="446,15,26,25"
+            Margin="446,18,26,22"
             Background="Green"
             Foreground="White"
             FontSize="18"
@@ -96,8 +97,11 @@
            
             >Add Customer</Button>
 
-        <StackPanel Grid.Row="1" Margin="10,10,26,10" Background="Black" Orientation="Vertical" Name="CustomerList"/>
+            <StackPanel Grid.Row="1" Margin="10,10,26,10" Background="Black" Orientation="Vertical" Name="CustomerList"/>
 
 
-    </Grid>
+        </Grid>
+
+    </ScrollViewer>
+        
 </Page>

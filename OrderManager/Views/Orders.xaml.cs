@@ -37,24 +37,26 @@ namespace OrderManager.Views
                 grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Auto) });
                 grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Auto) });
 
+                grid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength (1, GridUnitType.Star) });
+                grid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(1, GridUnitType.Star) });
+                
+
                 Button button = new Button();
                 Button button2 = new Button();
                 Button button3 = new Button();
                 Label label = new Label();
-
-                button.Content = $"{order.OrderNumber} {order.OrderDate} {order.CustomerId} {order.Quantity} {order.ProductId}";
+                 
+                button.Content = $"Order: {order.OrderNumber} Date: {order.OrderDate} Customer: {order.CustomerId} Product: {order.ProductId} Amount: {order.Quantity} ";
                 button2.Content = "Update";
                 button3.Content = "Delete";
 
-                button.Style = FindResource("AddOrderRoundedbtn") as Style;
-                button2.Style = FindResource("AddOrderRoundedbtn") as Style;
-                button3.Style = FindResource("AddOrderRoundedbtn") as Style;
+              
 
                 button.Background = Brushes.BlanchedAlmond;
                 button2.Background = Brushes.Yellow;
                 button3.Background = Brushes.Red;
 
-                button.Width = 300;
+                button.Width = 600;
                 button.Height = 25;
                 button2.Width = 100;
                 button2.Height = 25;
@@ -72,9 +74,13 @@ namespace OrderManager.Views
                 button2.Click += (sender, e) => GoToUpdateOrder(order);
                 button3.Click += (sender, e) => DeleteOrder(order);
 
-                Grid.SetColumn(button, 0);
+                Grid.SetColumnSpan(button, 3);
                 Grid.SetColumn(button2, 1);
                 Grid.SetColumn(button3, 2);
+
+                Grid.SetRow(button, 0);
+                Grid.SetRow(button2, 1);
+                Grid.SetRow(button3, 1);
 
                 grid.Children.Add(button);
                 grid.Children.Add(button2);

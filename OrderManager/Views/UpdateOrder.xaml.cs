@@ -78,7 +78,7 @@ namespace OrderManager.Views
                     }
                     else
                     {
-                        // Obsługa błędu
+                        
                     }
 
                 }
