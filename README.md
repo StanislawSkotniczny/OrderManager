@@ -18,3 +18,6 @@ To run this App you need to install:
 * SQLLite
 * .NET Framework
 * VisualStudio / VisualStudioCode 
+
+## How to start
+1. Clone the repository or download source code files:
