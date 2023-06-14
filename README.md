@@ -25,3 +25,6 @@ To run this App you need to install:
 3. Restore the NuGet packages specified in the project's dependencies.
 4. Build and Run application 
 
+## Basic operations
+### Adding a Customer 
+
