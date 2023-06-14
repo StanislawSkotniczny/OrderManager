@@ -19,6 +19,9 @@ namespace OrderManager.Classes
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<ORder1> ORder1s { get; set; }
 
+        public virtual DbSet<Transport> Transports { get; set; }
+
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             

@@ -1,0 +1,42 @@
+﻿<Page x:Class="OrderManager.Views.AddVehicles"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:OrderManager.Views"
+      mc:Ignorable="d" 
+       d:DesignHeight="600" d:DesignWidth="622" Background="black"
+      Title="AddVehicles">
+
+    <Grid>
+        <Frame
+                x:Name="mainFrame"
+                JournalOwnership="OwnsJournal"
+                NavigationUIVisibility="Hidden" />
+        <Label
+            Content="Car Name"
+            Foreground="White"
+            Margin="10,84,400,84"
+            FontSize="35"
+            FontWeight="Bold" Height="NaN" Width="NaN" RenderTransformOrigin="0.463,0.609"/>
+
+
+        <TextBox Height="NaN" Margin="303,103,26,432" Width="NaN" Name="CarName"/>
+
+
+        <Label
+            Content="Car Registration"
+            Foreground="White"
+            Margin="10,173,268,55"
+            FontSize="35"
+            FontWeight="Bold" Height="NaN" Width="NaN" RenderTransformOrigin="0.463,0.609"/>
+
+        <TextBox Height="NaN" Margin="303,193,26,344" Width="NaN" Name="CarReg"/>
+
+       
+
+        <Button  Margin="158,365,158,82" Content="Submit" FontSize="35" Name="AddVehicleSubmit"  Background="Green" Foreground="White" Click="AddVehicleSubmit_Click"/>
+
+
+    </Grid>
+</Page>

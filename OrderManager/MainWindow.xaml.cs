@@ -56,5 +56,11 @@ namespace OrderManager
             var page = new Orders();
             mainFrame.Content = page;
         }
+
+        private void TransportBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var page = new Views.Transport();
+            mainFrame.Content = page;
+        }
     }
 }
