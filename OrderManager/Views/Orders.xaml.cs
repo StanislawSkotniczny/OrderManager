@@ -29,6 +29,8 @@ namespace OrderManager.Views
             using OrderManagerContext context = new OrderManagerContext();
             var orders = from Order in context.Orders
                             select Order;
+            var orderItems = from OrderItem in context.OrderItems
+                         select OrderItem;
             foreach (var order in orders)
             {
                 Grid grid = new Grid();
@@ -68,7 +70,7 @@ namespace OrderManager.Views
                 button2.FontWeight = FontWeights.Bold;
                 button3.FontWeight = FontWeights.Bold;
 
-                button3.Click += (sender, e) => DeleteOrder(order);
+                button3.Click += (sender, e) => DeleteOrder(order, (OrderItem)orderItems);
 
                 Grid.SetColumn(button, 0);
                 Grid.SetColumn(button2, 1);
@@ -79,14 +81,15 @@ namespace OrderManager.Views
                 grid.Children.Add(button3);
 
                 OrderList.Children.Add(grid);
-
-                foreach (var orderItem in order.OrderItems)
+           
+                foreach (var orderItem in orderItems)
                 {
                     Label orderItemLabel = new Label();
+                    orderItemLabel.Background = Brushes.White;
                     orderItemLabel.Content = $"OrderItem: ProductId={orderItem.ProductId}, Quantity={orderItem.Quantity}";
                     OrderList.Children.Add(orderItemLabel);
                 }
-
+           
 
 
             }
@@ -100,11 +103,16 @@ namespace OrderManager.Views
         }
 
 
-        private void DeleteOrder(Order order)
+        private void DeleteOrder(Order order, OrderItem orderItems)
         {
             using OrderManagerContext context = new OrderManagerContext();
 
             if (context.Entry(order).State == EntityState.Detached)
+            {
+                context.Attach(order);
+            }
+           
+             if (context.Entry(order).State == EntityState.Detached)
             {
                 context.Attach(order);
             }
