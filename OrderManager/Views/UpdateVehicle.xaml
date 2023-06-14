@@ -92,7 +92,7 @@
 
 
 
-        <Button Style="{DynamicResource ButtonStyle1}"  Margin="158,363,158,84" Content="Confrim" FontSize="35" Name="UpdateVehicleSubmit"  Background="Green" Foreground="White" Click="UpdateVehicleSubmit_Click" />
+        <Button Style="{DynamicResource ButtonStyle1}"  Margin="158,363,158,84" Content="Update" FontSize="35" Name="UpdateVehicleSubmit"  Background="Green" Foreground="White" Click="UpdateVehicleSubmit_Click" />
 
     </Grid>
 </Page>
