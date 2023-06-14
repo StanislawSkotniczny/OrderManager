@@ -119,21 +119,19 @@ namespace OrderManager.Views
 
             if (int.TryParse(((ComboBox)FindName("CustomerId")).Text, out int customerId))
             {
-                Order order = new Order()
+                ORder1 order = new ORder1()
                 {
                     CustomerId = customerId,
                     OrderNumber = ((TextBox)FindName("OrderNumber")).Text ?? "Empty",
                     OrderDate = ((DatePicker)FindName("OrderDate")).SelectedDate ?? DateTime.MinValue,
-                };
-
-                OrderItem orderItem = new OrderItem()
-                {
                     Quantity = int.TryParse(((TextBox)FindName("Quantity")).Text, out int quantity) ? quantity : 0,
                     ProductId = int.TryParse(((ComboBox)FindName("ProductId")).Text, out int productId) ? productId : 0
                 };
 
-                context.Orders.Add(order);
-                context.OrderItems.Add(orderItem);
+                
+
+                context.ORder1s.Add(order);
+               
 
                 context.SaveChanges();
             }

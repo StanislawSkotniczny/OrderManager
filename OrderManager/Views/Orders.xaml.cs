@@ -27,10 +27,9 @@ namespace OrderManager.Views
         {
             InitializeComponent();
             using OrderManagerContext context = new OrderManagerContext();
-            var orders = from Order in context.Orders
-                            select Order;
-            var orderItems = from OrderItem in context.OrderItems
-                         select OrderItem;
+            var orders = from ORder1 in context.ORder1s
+                            select ORder1;
+            
             foreach (var order in orders)
             {
                 Grid grid = new Grid();
@@ -43,7 +42,7 @@ namespace OrderManager.Views
                 Button button3 = new Button();
                 Label label = new Label();
 
-                button.Content = $"{order.OrderNumber} {order.OrderDate} {order.CustomerId}";
+                button.Content = $"{order.OrderNumber} {order.OrderDate} {order.CustomerId} {order.Quantity} {order.ProductId}";
                 button2.Content = "Update";
                 button3.Content = "Delete";
 
@@ -70,7 +69,8 @@ namespace OrderManager.Views
                 button2.FontWeight = FontWeights.Bold;
                 button3.FontWeight = FontWeights.Bold;
 
-                button3.Click += (sender, e) => DeleteOrder(order, (OrderItem)orderItems);
+                button2.Click += (sender, e) => GoToUpdateOrder(order);
+                button3.Click += (sender, e) => DeleteOrder(order);
 
                 Grid.SetColumn(button, 0);
                 Grid.SetColumn(button2, 1);
@@ -82,14 +82,7 @@ namespace OrderManager.Views
 
                 OrderList.Children.Add(grid);
            
-                foreach (var orderItem in orderItems)
-                {
-                    Label orderItemLabel = new Label();
-                    orderItemLabel.Background = Brushes.White;
-                    orderItemLabel.Content = $"OrderItem: ProductId={orderItem.ProductId}, Quantity={orderItem.Quantity}";
-                    OrderList.Children.Add(orderItemLabel);
-                }
-           
+              
 
 
             }
@@ -103,7 +96,7 @@ namespace OrderManager.Views
         }
 
 
-        private void DeleteOrder(Order order, OrderItem orderItems)
+        private void DeleteOrder(ORder1 order)
         {
             using OrderManagerContext context = new OrderManagerContext();
 
@@ -111,17 +104,20 @@ namespace OrderManager.Views
             {
                 context.Attach(order);
             }
-           
-             if (context.Entry(order).State == EntityState.Detached)
-            {
-                context.Attach(order);
-            }
-           
 
+
+            context.ORder1s.Remove(order);
             context.SaveChanges();
             Page newPage = new Orders();
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(newPage);
+        }
+
+
+        private void GoToUpdateOrder(ORder1 order)
+        {
+            UpdateOrder updatePage = new UpdateOrder(order);
+            NavigationService.Navigate(updatePage);
         }
 
     }
