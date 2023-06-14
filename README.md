@@ -20,4 +20,8 @@ To run this App you need to install:
 * VisualStudio / VisualStudioCode 
 
 ## How to start
-1. Clone the repository or download source code files:
+1. Clone the repository or download source code files: https://github.com/StanislawSkotniczny/OrderManager.git
+2. Open the project in  Visual Studio.
+3. Restore the NuGet packages specified in the project's dependencies.
+4. Build and Run application 
+
