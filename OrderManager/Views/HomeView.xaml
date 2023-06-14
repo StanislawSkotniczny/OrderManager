@@ -14,11 +14,7 @@
 
 
         <TextBlock Text="Welcome"  Foreground="Black" FontSize="60" FontWeight="SemiBold" Margin="162,96,162,374"/>
-        <StackPanel  Orientation="Horizontal" Margin="112,231,262,245">
-            <Image Source="/images/fast.png" Height="126" Width="108" RenderTransformOrigin="0.541,-0.432" />
-            <Image Source="/images/manager.png" Height="116" Width="80" Margin="100,10,100,10"/>
-            <Image Source="/images/shopping-cart.png" Height="132" Width="75"/>
-        </StackPanel>
+       
 
 
     </Grid>
