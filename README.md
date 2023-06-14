@@ -12,3 +12,9 @@ informations about products.
 informations about orders. 
 * Vehicle Menagement: You can add / delete / edit
 informations about vehicles. 
+
+## Preconditions
+To run this App you need to install:
+* SQLLite
+* .NET Framework
+* VisualStudio / VisualStudioCode 
