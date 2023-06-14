@@ -44,7 +44,9 @@ To run this App you need to install:
 4. Click upadate button
 5. Refill required deatails. 
 6. Click submit button to add customer. 
- 
+## Managing Products, Orders and Vehicles
+The process is similiar to managing customers.
+You can add/edit/delete the data.
 
 
 
